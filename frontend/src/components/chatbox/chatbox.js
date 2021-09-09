@@ -1,6 +1,7 @@
 import React from 'react';
 import chatIcon from "../../images/chat-icon.png";
 import SendIcon from '@material-ui/icons/Send';
+import CloseIcon from '@material-ui/icons/Close';
 const Chatbox =()=>{
     return(
         <div className='chat'>
@@ -13,7 +14,7 @@ const Chatbox =()=>{
                     <h1>Chat Bot </h1>
                 </div>
                 <div>
-                   X
+                    <CloseIcon/>
                 </div>
             </div>
             <div className='chat__conversation'>
