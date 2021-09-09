@@ -1,0 +1,6 @@
+.chat-bubble{
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    cursor: pointer;
+}

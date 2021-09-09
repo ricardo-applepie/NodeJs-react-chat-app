@@ -1,8 +1,9 @@
 import React from 'react';
+import "./chatbox.css";
 import chatIcon from "../../images/chat-icon.png";
 import SendIcon from '@material-ui/icons/Send';
 import CloseIcon from '@material-ui/icons/Close';
-const Chatbox =()=>{
+const Chatbox = ({ toggleChatBoxDisplay })=>{
     return(
         <div className='chat'>
             <div className='chat__top'>
@@ -13,7 +14,7 @@ const Chatbox =()=>{
                 <div>
                     <h1>Chat Bot </h1>
                 </div>
-                <div>
+                <div className='close-btn' onClick={toggleChatBoxDisplay}>
                     <CloseIcon/>
                 </div>
             </div>

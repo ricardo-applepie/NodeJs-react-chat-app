@@ -1,9 +1,10 @@
-import React,{useState} from 'react';
+import React from 'react';
+import "./chatbubble.css";
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
-const ChatBubble =()=>{
-    const [isChatBoxDisplayed, toggleChatBoxDisplay]=useState(false);
+const ChatBubble = ({ toggleChatBoxDisplay})=>{
+
     return(
-        <div>
+        <div className='chat-bubble' onClick={toggleChatBoxDisplay}>
             <ChatBubbleIcon/>
         </div>
     )
