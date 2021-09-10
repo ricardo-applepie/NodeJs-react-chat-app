@@ -10,6 +10,7 @@
     -webkit-font-smoothing: antialiased!important;
     -moz-osx-font-smoothing: grayscale;
 }
+
 .page-width{
   width: 1200px;
   margin: 0 auto;
@@ -24,9 +25,6 @@
     right: 0px;
     height: 600px;
     width: 360px;
-
-   
-
 }
 
 img{
@@ -84,4 +82,17 @@ img{
 .chat-bottom{
     border-top-color: rgb(238, 238, 238);
     background: rgb(249, 249, 249);
+}
+
+ul li::marker {
+  color: red;
+  font-size: 1.5em;
+}
+li {
+
+  list-style-type: '';
+
+}
+a{
+  text-decoration: none;
 }

@@ -8,12 +8,14 @@ import {
 import { io } from "socket.io-client";
 import Login from './pages/login/Login';
 import HomePage from './pages/homepage/Homepage';
-
+import Navbar from './components/navbar/Navbar';
 
 function App() {
   return (
     <div>
+    
        <Router>
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <HomePage />
@@ -24,7 +26,7 @@ function App() {
         </Switch>
        </Router>
      
-     
+      
     </div>
   );
 }
