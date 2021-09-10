@@ -80,19 +80,7 @@ img{
     background: rgb(255, 255, 255);
     border-top-color: rgb(234, 234, 234);
 }
-input {
-    font-size: 16px;
-    line-height: 20px;
-    height: 100%;
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 0px;
-    flex: 1 0 0;
-    padding: 0 20px;
-    background: transparent;
-    border: 0;
-     background: rgb(255, 255, 255);
-    border-top-color: rgb(234, 234, 234);
-}
+
 .chat-bottom{
     border-top-color: rgb(238, 238, 238);
     background: rgb(249, 249, 249);
