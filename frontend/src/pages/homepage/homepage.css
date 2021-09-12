@@ -2,6 +2,7 @@
     text-align: center;
 }
 .users{
+    position: relative;
     width: 400px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     background-color: #f0f2f5;
@@ -14,4 +15,8 @@
 .username:hover{
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     background-color: #f0f2f5;
+}
+
+.users-loader{
+    position: absolute;
 }

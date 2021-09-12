@@ -35,6 +35,9 @@ const data = useSelector((state)=>state);
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/friends">
+            <Login />
+          </Route>
           <Route component={SignUp}/>
         </Switch>
        </Router>

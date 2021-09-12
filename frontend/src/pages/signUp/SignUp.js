@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Link, useHistory } from "react-router-dom";
-import './signup.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,6 +48,7 @@ const SignUp = () => {
             .then(data => {
                 console.log('Success:', data);
                 localStorage.setItem('usertoken', data.token);
+                RedirectUserToHomePage()
                 // setTimeout(function(){
                 //     RedirectUserToHomePage();
                 // },3000);
@@ -73,7 +73,7 @@ const SignUp = () => {
                                 <TextField name="email" onChange={(e) => { UpdateUserInput(e) }} id="standard-basic" fullWidth label="Email" />
                             </div>
                             <div >
-                                <TextField name="username" onChange={(e) => { UpdateUserInput(e) }} id="standard-basic" type='password' fullWidth label="username" />
+                                <TextField name="username" onChange={(e) => { UpdateUserInput(e) }} id="standard-basic"  fullWidth label="username" />
                             </div>
 
                             <div >

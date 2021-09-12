@@ -31,7 +31,7 @@ const Login =()=>{
     const LoginUser =()=>{
    
         const data = { username, password};
-
+        setLoaderState(true);
         fetch('http://localhost:4000/api/login', {
             method: 'POST', // or 'PUT'
             headers: {
@@ -40,20 +40,20 @@ const Login =()=>{
             body: JSON.stringify(data),
         })
             .then(response =>{
-                 response.json()
-                setLoaderState(!loader);
+                              
+                return  response.json()
                 }).then(data => {
                 console.log('Success:', data);
                 if (data.token){
                     localStorage.setItem('auth', true);
                     localStorage.setItem('usertoken', data.token);
                     dispatch({ type: 'Set_User_Auth' });
-                    
-                    setTimeout(function(){
+                    setLoaderState(false)
                     RedirectUserToHomePage();
-                    setLoaderState(!loader)
-                    },3000);
+                    
+                    
                 }
+                setLoaderState(false)
                 setError(data.message)
             })
             .catch((error) => {

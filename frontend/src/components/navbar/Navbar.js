@@ -22,18 +22,18 @@ const Navbar =()=>{
                         <p>Home</p>
                      </Link>
                  </li>
-                <li className='navbar__item'>
+                {/* <li className='navbar__item'>
                     <Link to="/inbox">
                         <NotificationsActiveIcon/>
                         <p>noifications</p>
                     </Link>
-                </li>
-                <li className='navbar__item'>
+                </li> */}
+                {/* <li className='navbar__item'>
                     <Link to="/friends">
                         <PeopleIcon/>
                         <p>Friends</p>
                     </Link>
-                </li>
+                </li> */}
                 <li className='navbar__item'>
                     <Link to="/login">
                         <LockOpenIcon />

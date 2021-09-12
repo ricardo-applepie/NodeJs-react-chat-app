@@ -9,8 +9,9 @@ import Avatar from '@material-ui/core/Avatar';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-
+import Loader from "react-loader-spinner";
 function HomePage() {
+    const [loader, setLoaderState] = useState(true);
     const dispatch = useDispatch();
     const userInfo = useSelector((state) => state.userInfo)
     const data = useSelector((state) => state)
@@ -68,8 +69,7 @@ function HomePage() {
   const fetchUserDetails=()=>{
       
       fetch('http://localhost:4000/api/users', defaultOptions).then((res) => res.json()).then((data)=>{
-        
-          
+              
           SetUsers(data.data.rows);
         }).catch((error)=>console.log(error));
   }
@@ -98,9 +98,7 @@ function HomePage() {
 
   }
 
-//   useEffect(()=>{
-//       fetchUserMessages()
-//   })
+
     
 
     useEffect(() => {
@@ -112,7 +110,7 @@ function HomePage() {
             const username = data.data.username;
             SetLoggedInUser(data.data.username);
             dispatch({ type: 'Set_User_info', payload: username});
-          
+            setLoaderState(false);
         })
     },[]);
     
@@ -128,9 +126,20 @@ function HomePage() {
     const classes = useStyles();
     return (
         <div className="home">
- 
+
             <div className='users'>
-                 
+                 <div className='users-loader'>
+                    {loader ? (
+                        <Loader
+                            type="Puff"
+                            color="#00BFFF"
+                            height={100}
+                            width={100}
+                        // timeout={3000} //3 secs
+                        />
+                    ) : ''}
+
+                 </div>
                 <h1 className='users__title'>Users</h1>
                 {users.map((user) => {
                     return (

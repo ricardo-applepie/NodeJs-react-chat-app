@@ -19,6 +19,7 @@ const [userMessage,SetUserMessage]=useState("");
         fetchUserMessages();
 
         console.log(message)
+        setInputValue("")
         // console.log("sending message ");
         // socket.emit('chat message', inputValue);
         // setInputValue("");
