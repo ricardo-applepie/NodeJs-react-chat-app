@@ -10,3 +10,8 @@
 .navbar__item{
     text-align: center;
 }
+
+
+.navbar__item{
+    cursor: pointer;
+}

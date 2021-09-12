@@ -6,6 +6,7 @@ const ChatBubble = ({ toggleChatBoxDisplay})=>{
     return(
         <div className='chat-bubble' onClick={toggleChatBoxDisplay}>
             <ChatBubbleIcon/>
+            <p>Chat</p>
         </div>
     )
 }

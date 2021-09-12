@@ -21,9 +21,9 @@
 }
 .chat {
     position: absolute;
-    bottom: 0;
+    bottom: 100px;
     right: 0px;
-    height: 600px;
+    height: 550px;
     width: 360px;
 }
 

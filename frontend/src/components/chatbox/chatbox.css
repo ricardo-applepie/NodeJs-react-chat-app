@@ -3,7 +3,25 @@
 }
 
 .tpl-text-response{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
 background: rgb(0, 108, 255);
+color: rgb(255, 255, 255);
+border-radius: 20px 5px 20px 20px;
+font-size: 16px;
+line-height: 20px;
+word-wrap: break-word;
+white-space: pre-wrap;
+max-width: 100%;
+padding: 15px 17px;
+}
+.sender{
+
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+background: red;
 color: rgb(255, 255, 255);
 border-radius: 20px 5px 20px 20px;
 font-size: 16px;
@@ -16,7 +34,18 @@ padding: 15px 17px;
 .user{
 display: flex;
 flex-direction: column;
+}
+.right{
+display: flex;
+flex-direction: column;
 align-items: flex-end;
+margin: 5px;
+}
+.left{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin: 5px;
 }
 .chat__conversation{
     padding: 9px 20px 0 20px;
@@ -34,4 +63,7 @@ align-items: flex-end;
     border: 0;
      background: rgb(255, 255, 255);
     border-top-color: rgb(234, 234, 234);
+}
+.chat-bottom{
+    text-align: center;
 }

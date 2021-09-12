@@ -1,0 +1,17 @@
+.users__title{
+    text-align: center;
+}
+.users{
+    width: 400px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    background-color: #f0f2f5;
+    margin: 0 0 0 80px;
+    padding: 20px 20px 20px 20px;
+}
+.username{
+    cursor: pointer;
+}
+.username:hover{
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    background-color: #f0f2f5;
+}
