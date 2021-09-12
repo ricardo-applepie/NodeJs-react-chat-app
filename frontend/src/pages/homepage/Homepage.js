@@ -1,28 +1,44 @@
 import React, { useState ,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import './homepage.css';
 import '../../App.css';
 import Chatbox from '../.././components/chatbox/chatbox';
 import ChatBubble from '../.././components/chatBubble/chatBubble';
 import Avatar from '@material-ui/core/Avatar';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function HomePage() {
-
+    const dispatch = useDispatch();
+    const userInfo = useSelector((state) => state.userInfo)
+    const data = useSelector((state) => state)
+    console.log(data)
     const [isChatBoxDisplayed, toggleChatBoxDisplay] = useState(false);
     const [users,SetUsers] = useState([]);
     const [username, setUsername]=useState('');
     const [messages,SetMessages]=useState([]);
-    const [loggedInUser, SetLoggedInUser] = useState("adam");
+    const [loggedInUser, SetLoggedInUser] = useState("");
     const toggleChatBox = () => {
 
     toggleChatBoxDisplay(!isChatBoxDisplayed);
     }
 
-    const socket = io("http://localhost:4000/", { transports: ['websocket'] });
+    // const socket = io("http://localhost:4000/", { transports: ['websocket'] });
+
+    let token = localStorage.getItem("usertoken");
+    let defaultOptions = {
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+    };
+
+
+
     
     // fetch user details ;
+
     const fetchUserMessages=()=>{
 
         axios.get('http://localhost:4000/api/messages')
@@ -51,11 +67,11 @@ function HomePage() {
   
   const fetchUserDetails=()=>{
       
-      fetch('http://localhost:4000/api/profile').then((res) => res.json()).then((data)=>{
-          console.log(data.data.rows);
+      fetch('http://localhost:4000/api/users', defaultOptions).then((res) => res.json()).then((data)=>{
+        
           
           SetUsers(data.data.rows);
-        });
+        }).catch((error)=>console.log(error));
   }
   function setRecipientAndSender(user){
 
@@ -75,7 +91,7 @@ function HomePage() {
       setRecipientAndSender(user);
       toggleChatBoxDisplay(true);
       setTimeout(function(){
-        fetchUserMessages();
+      fetchUserMessages();
     
       },1000)
    
@@ -85,9 +101,19 @@ function HomePage() {
 //   useEffect(()=>{
 //       fetchUserMessages()
 //   })
+    
 
     useEffect(() => {
         fetchUserDetails();
+        fetch("http://localhost:4000/api/profile", defaultOptions).then((res)=>{
+         return res.json();
+      
+        }).then(function(data){
+            const username = data.data.username;
+            SetLoggedInUser(data.data.username);
+            dispatch({ type: 'Set_User_info', payload: username});
+          
+        })
     },[]);
     
     const useStyles = makeStyles((theme) => ({

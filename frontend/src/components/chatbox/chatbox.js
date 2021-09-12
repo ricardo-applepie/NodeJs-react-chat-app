@@ -3,10 +3,10 @@ import "./chatbox.css";
 import chatIcon from "../../images/chat-icon.png";
 import SendIcon from '@material-ui/icons/Send';
 import CloseIcon from '@material-ui/icons/Close';
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
 const Chatbox = ({ toggleChatBoxDisplay, username, messages, loggedInUser})=>{
-const socket = io("http://localhost:4000/", { transports: ['websocket'] });
+// const socket = io("http://localhost:4000/", { transports: ['websocket'] });
 
 const [inputValue,setInputValue]=useState('');
 

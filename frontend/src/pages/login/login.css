@@ -19,3 +19,10 @@
 .error-message{
     color: red;
 }
+.form{
+    position: relative;
+}
+.loader{
+    position: absolute;
+   top: 30px;
+}

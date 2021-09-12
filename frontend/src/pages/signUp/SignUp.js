@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import './signup.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -91,6 +91,9 @@ const SignUp = () => {
                         <Button onClick={SignUpUser}  variant="contained" color="primary" disableElevation>
                             Sign Up
                         </Button>
+                        <div>
+                            <div className='text-center'>Already have and account ?<Link to="/login">login</Link></div>
+                        </div>
                     </form>
                 </div>
 

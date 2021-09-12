@@ -2,7 +2,9 @@ import React,{useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import Loader from "react-loader-spinner";
 import './login.css'
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,10 +17,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login =()=>{
+
+    const dispatch = useDispatch();
     const classes = useStyles();
+    let history = useHistory();
     const [username, setUsername] = useState('');
     const [password, SetPassword]=useState('');
-    const [error,setError]=useState('')
+    const [error,setError]=useState('');
+    const [loader,setLoaderState]=useState(false);
+    function RedirectUserToHomePage() {
+        history.push("/");
+    }
     const LoginUser =()=>{
    
         const data = { username, password};
@@ -30,9 +39,21 @@ const Login =()=>{
             },
             body: JSON.stringify(data),
         })
-            .then(response => response.json())
-            .then(data => {
+            .then(response =>{
+                 response.json()
+                setLoaderState(!loader);
+                }).then(data => {
                 console.log('Success:', data);
+                if (data.token){
+                    localStorage.setItem('auth', true);
+                    localStorage.setItem('usertoken', data.token);
+                    dispatch({ type: 'Set_User_Auth' });
+                    
+                    setTimeout(function(){
+                    RedirectUserToHomePage();
+                    setLoaderState(!loader)
+                    },3000);
+                }
                 setError(data.message)
             })
             .catch((error) => {
@@ -64,6 +85,18 @@ const Login =()=>{
                             Login
                         </Button>
                     </form>
+                    <div className="loader">
+                        {loader?(
+                            <Loader
+                                type="Puff"
+                                color="#00BFFF"
+                                height={100}
+                                width={100}
+                            // timeout={3000} //3 secs
+                            />
+                        ):''}
+  
+                    </div>
                 </div>
 
             </div>

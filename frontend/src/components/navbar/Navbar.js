@@ -7,7 +7,12 @@ import PeopleIcon from '@material-ui/icons/People';
 import HomeIcon from '@material-ui/icons/Home';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import HowToRegIcon from '@material-ui/icons/HowToReg';
+import Avatar from '@material-ui/core/Avatar';
+import { useSelector } from 'react-redux';
+
 const Navbar =()=>{
+    const { username } = useSelector((state) => state.userInfo)
+
     return(
         <div>
              <nav className='navbar'>
@@ -41,18 +46,20 @@ const Navbar =()=>{
                         <p>signup</p>
                     </Link>
                 </li>
-                <li className='navbar__item'>
-                    <Link to="/about">
-                        <PeopleIcon />
-                       <p>About</p>
-                    </Link>
-                </li>
+    
                 <li onClick={() => {
+                    alert("logged out")
                     localStorage.removeItem('usertoken'); }} className='navbar__item'>
                   
                         <PeopleIcon />
                         <p>logout</p>
                    
+                </li>
+                <li className='navbar__item'>
+                    <Link to="/">
+                        <Avatar alt={username}src="/static/images/avatar/1.jpg" />
+                        <p>{username}</p>
+                    </Link>
                 </li>
              </nav>  
         </div>
