@@ -37,6 +37,7 @@ app.post('/api/login', loginMiddleWare, async (req, res) => {
     console.log(error);
   }
 });
+
 app.post('/api/signup', signUpMiddleWare, async (req, res) => {
   const { email, username, password, age, phone__number } = req.body;
 
@@ -77,6 +78,7 @@ app.get('/api/messages', async (req, res) => {
     console.log(error);
   }
 });
+
 const senderAndReciver = {};
 
 app.post('/api/userTosendmessage', (req, res) => {
